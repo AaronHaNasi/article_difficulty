@@ -6,5 +6,7 @@
 #include "read.h"
 
 int getAverageWordSize(char *fileName) {
+	FILE *fp; 
+	fp = fopen(fileName, "r"); // open file for reading 
 	
 }
