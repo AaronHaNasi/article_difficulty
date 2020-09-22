@@ -2,7 +2,8 @@
 // CIS 343-02
 // Project 1
 #include <unistd.h> // To check if file exists 
-
+#include "read.h" //
+#include <stdio.h>
 
 int main (int argc, char *argv[]) {
 	if ( argc == 1) {
@@ -17,6 +18,8 @@ int main (int argc, char *argv[]) {
 			}
 	}
 	else {
-		
+		for (int i = 0; i < argc; i++) {
+			
+		}	
 	}
 }
