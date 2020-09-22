@@ -35,5 +35,7 @@ int main (int argc, char *argv[]) {
 				smallestFile = i; 
 			}
 		}	
+		
+		printf("Most difficult document: %s\nLeast difficult document: %s", argv[largestFile], argv[smallestFile]); 
 	}
 }
