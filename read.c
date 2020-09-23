@@ -10,12 +10,13 @@ int getAverageWordSize(char *fileName) {
 	int wordSize = 0; 
 	int average = 0;
 	int numberOfWords = 0; 
-	FILE *fp; 
+	FILE *fp;
+       	char tempChar; 	
 	
 	fp = fopen(fileName, "r"); // open file for reading 
 	
-	while( fgetc(fp) != EOF ) { // TODO fix this part of the function so that it actually works correctly 
-		if(fgetc(fp) == ' ' || fgetc(fp) == '.' || fgetc(fp) == '?' || fgetc(fp) == '!' || fgetc(fp) == ':' || fgetc(fp) == ';' || fgetc == ',') {
+	while( tempChar = fgetc(fp) != EOF ) { // TODO fix this part of the function so that it actually works correctly 
+		if(tempChar == ' ' || tempChar == '.' || tempChar == '?' || tempChar == '!' || tempChar == ':' || tempChar == ';' || tempChar == ',') {
 			average += wordSize;
 		       	wordSize = 0;	
 			numberOfWords++; 
@@ -23,6 +24,7 @@ int getAverageWordSize(char *fileName) {
 		else {
 			wordSize++; 
 		}
+		fflush(tempChar); 
 	}
 	
 	average = average / numberOfWords;
