@@ -4,10 +4,11 @@
 #include <unistd.h> // To check if file exists TODO use stdio to check instead
 // #include "read.h" //
 #include <stdio.h>
+#include <stdlib.h>
 
-int getAverageWordSize(char *fileName) {
+double getAverageWordSize(char *fileName) {
 	int wordSize = 0;
-	int average = 0;
+	double average = 0;
 	int numberOfWords = 0;
 	FILE *fp;
        	char tempChar;
@@ -17,7 +18,7 @@ int getAverageWordSize(char *fileName) {
 		printf("%s does not exist. Exiting...", fileName);
 		exit(0);
 	}
-	// while( ( tempChar = fgetc(fp) ) != EOF ) { // TODO fix this part of the function so that it actually works correctly
+	
 	while( !feof(fp) ) {
 	      tempChar = fgetc(fp);
 		if(tempChar == ' ' || tempChar == '.' || tempChar == '?' || tempChar == '!' || tempChar == ':' || tempChar == ';' || tempChar == ',') {
@@ -38,9 +39,9 @@ int getAverageWordSize(char *fileName) {
 
 
 int main (int argc, char **argv) {
-	int smallestWordSize = 10000; // used to keep track of smallest file thus far, intially 1
-	int largestWordSize = 0; // used to keep track of largest file size thus far, initially 0
-	int tempInt; // used for comparing file sizes
+	double smallestWordSize = 10000; // used to keep track of smallest file thus far, intially 1
+	double largestWordSize = 0; // used to keep track of largest file size thus far, initially 0
+	double tempDouble; // used for comparing file sizes
 	int smallestFile; // index of smallest file in arguments given
 	int largestFile; // index number of largest file in arguments given
 	if ( argc == 1) {
@@ -56,14 +57,14 @@ int main (int argc, char **argv) {
 	}
 	else {
 		for (int i = 1; i < argc; i++) {
-			tempInt = getAverageWordSize(argv[i]);
-			if (tempInt > largestWordSize) {
-				largestWordSize = tempInt;
+			tempDouble = getAverageWordSize(argv[i]);
+			if (tempDouble > largestWordSize) {
+				largestWordSize = tempDouble;
 				largestFile = i;
 			}
 
-			if (tempInt < smallestWordSize) {
-				smallestWordSize = tempInt;
+			if (tempDouble < smallestWordSize) {
+				smallestWordSize = tempDouble;
 				smallestFile = i;
 			}
 		}
