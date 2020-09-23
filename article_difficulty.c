@@ -18,10 +18,10 @@ double getAverageWordSize(char *fileName) {
 		printf("%s does not exist. Exiting...", fileName);
 		exit(0);
 	}
-	
+
 	while( !feof(fp) ) {
 	      tempChar = fgetc(fp);
-		if(tempChar == ' ' || tempChar == '.' || tempChar == '?' || tempChar == '!' || tempChar == ':' || tempChar == ';' || tempChar == ',') {
+		if( tempChar == ' ' ) {
 			average += wordSize;
 		       	wordSize = 0;
 			numberOfWords++;
@@ -48,7 +48,7 @@ int main (int argc, char **argv) {
 		printf("Please provide file names");
 	}
 	else if ( argc == 2) {
-			if ( access( argv[1], F_OK ) != -1 ) {
+			if ( access( argv[1], F_OK ) != -1 ) { // TODO use stdio.h here instead of unistd.h
 				printf("\nMost difficult document: %s\nLeast difficult document: %s", argv[1], argv[1]);
 			}
 			else {
