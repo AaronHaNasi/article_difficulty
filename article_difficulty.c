@@ -6,7 +6,7 @@
 #include <stdio.h>
 
 int main (int argc, char **argv) {
-	int smallestWordSize = 1; // used to keep track of smallest file thus far, intially 1 
+	int smallestWordSize = 10000; // used to keep track of smallest file thus far, intially 1 
 	int largestWordSize = 0; // used to keep track of largest file size thus far, initially 0 
 	int tempInt; // used for comparing file sizes
 	int smallestFile; // index of smallest file in arguments given
