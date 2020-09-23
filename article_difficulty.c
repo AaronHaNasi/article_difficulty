@@ -1,7 +1,7 @@
 // Aaron Bager
 // CIS 343-02
 // Project 1
-#include <unistd.h> // To check if file exists 
+#include <unistd.h> // To check if file exists TODO use stdio to check instead 
 #include "read.h" //
 #include <stdio.h>
 
