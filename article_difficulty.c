@@ -49,7 +49,7 @@ int main (int argc, char **argv) {
 	}
 	else if ( argc == 2) {
 			if ( access( argv[1], F_OK ) != -1 ) {
-				printf("\nMost difficult document: %s\nLeast difficult document: %s", argv[1], argv[1]);
+				printf("\nMost difficult document: %s\nLeast difficult document: %s\n", argv[1], argv[1]);
 			}
 			else {
 				printf("Error: %s does not exist.", argv[1]);
@@ -69,6 +69,6 @@ int main (int argc, char **argv) {
 			}
 		}
 
-		printf("Most difficult document: %s\nLeast difficult document: %s", argv[largestFile], argv[smallestFile]);
+		printf("Most difficult document: %s\nLeast difficult document: %s\n", argv[largestFile], argv[smallestFile]);
 	}
 }
