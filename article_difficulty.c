@@ -13,13 +13,13 @@ double getAverageWordSize(char *fileName) {
 
 	fp = fopen(fileName, "r"); // open file for reading
 	if (fp == NULL) {
-		printf("%s does not exist. Exiting...", fileName);
+		printf("%s does not exist. Exiting...\n", fileName);
 		exit(0);
 	}
 	
 	while( !feof(fp) ) {
 	      tempChar = fgetc(fp);
-		if(tempChar == ' ' || tempChar == '.' || tempChar == '?' || tempChar == '!' || tempChar == ':' || tempChar == ';' || tempChar == ',') {
+		if( tempChar == ' ' ) {
 			average += wordSize;
 		       	wordSize = 0;
 			numberOfWords++;
@@ -27,6 +27,9 @@ double getAverageWordSize(char *fileName) {
 		else {
 			wordSize++;
 		}
+	}
+	if(numberOfWords > 1) {
+		numberOfWords = 1;
 	}
 	fclose(fp);
 	average = average / numberOfWords;
@@ -48,10 +51,10 @@ int main (int argc, char **argv) {
 			fp = fopen(argv[1], "r");
 
 			if ( fp != NULL ) {
-				printf("\nMost difficult document: %s\nLeast difficult document: %s", argv[1], argv[1]);
+				printf("\nMost difficult document: %s\nLeast difficult document: %s\n", argv[1], argv[1]);
 			}
 			else {
-				printf("Error: %s does not exist.", argv[1]);
+				printf("Error: %s does not exist.\n", argv[1]);
 			}
 	}
 	else {
@@ -68,6 +71,6 @@ int main (int argc, char **argv) {
 			}
 		}
 
-		printf("Most difficult document: %s\nLeast difficult document: %s", argv[largestFile], argv[smallestFile]);
+		printf("Most difficult document: %s\nLeast difficult document: %s\n", argv[largestFile], argv[smallestFile]);
 	}
 }
