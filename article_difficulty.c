@@ -28,12 +28,22 @@ double getAverageWordSize(char *fileName) {
 			wordSize++;
 		}
 	}
-	if(numberOfWords > 1) {
+	if(average == 0) {
+		average = wordSize; 
+	}
+	if(numberOfWords == 0 && average > 0) {
 		numberOfWords = 1;
 	}
 	fclose(fp);
-	average = average / numberOfWords;
-	return average;
+	if(average != 0 || numberOfWords != 0) {
+		average = average / numberOfWords;
+		return average;
+	}
+	else
+	{
+		return 0;
+	}
+	
 }
 
 
